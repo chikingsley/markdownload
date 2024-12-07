@@ -13,12 +13,16 @@
     "512": "icons/favicon-512x512.png"
   },
   "permissions": [
-    "<all_urls>",
     "activeTab",
     "downloads",
     "storage",
     "contextMenus",
+    "https://api.mistral.ai/*",
+    "<all_urls>",
     "clipboardWrite"
+  ],
+  "host_permissions": [
+    "https://api.mistral.ai/*"
   ],
   "browser_action": {
     "default_title": "MarkDownload",

@@ -11,13 +11,17 @@
   </head>
 
 <body>
-  <div id="container">
+  <div id="container" class="keep-open">
     
     <a href="#" class="button toggle" id="downloadImages"><i class="check"></i>Download Images</a>
     <a href="/options/options.html" id="options" target="_blank">open options</a>
     <div class="row" id="clipOption">
       <a href="#" class="button toggle" id="selected"><i class="check"></i>Selected Text</a>
       <a href="#" class="button toggle" id="document"><i class="check"></i>Entire Document</a>
+    </div>
+    <a href="#" class="button toggle" id="cleanWithClaude"><i class="check"></i>Clean with Mistral</a>
+    <div class="progress-container">
+        <div id="progress" class="progress-bar"></div>
     </div>
     <a href="#" class="button toggle" id="includeTemplate"><i class="check"></i>Include front/back template</a>
     <input type="text" id="title"></input>

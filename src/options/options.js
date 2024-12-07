@@ -1,7 +1,6 @@
 let options = defaultOptions;
 let keyupTimeout = null;
 
-
 const saveOptions = e => {
     e.preventDefault();
 
@@ -20,6 +19,7 @@ const saveOptions = e => {
         obsidianIntegration: document.querySelector("[name='obsidianIntegration']").checked,
         obsidianVault: document.querySelector("[name='obsidianVault']").value,
         obsidianFolder: document.querySelector("[name='obsidianFolder']").value,
+        claudeApiKey: document.querySelector("[name='claudeApiKey']").value,
 
         headingStyle: getCheckedValue(document.querySelectorAll("input[name='headingStyle']")),
         hr: getCheckedValue(document.querySelectorAll("input[name='hr']")),
@@ -64,7 +64,7 @@ const save = () => {
         })
         .then(() => {
             document.querySelectorAll(".status").forEach(statusEl => {
-                statusEl.textContent = "Options Saved 💾";
+                statusEl.textContent = "Options Saved ";
                 statusEl.classList.remove('error');
                 statusEl.classList.add('success');
                 statusEl.style.opacity = 1;
@@ -108,22 +108,23 @@ const setCurrentChoice = result => {
         options.imageStyle = 'originalSource';
     }
 
-    document.querySelector("[name='frontmatter']").value = options.frontmatter;
+    document.querySelector("[name='frontmatter']").value = options.frontmatter || '';
     textareaInput.bind(document.querySelector("[name='frontmatter']"))();
-    document.querySelector("[name='backmatter']").value = options.backmatter;
+    document.querySelector("[name='backmatter']").value = options.backmatter || '';
     textareaInput.bind(document.querySelector("[name='backmatter']"))();
-    document.querySelector("[name='title']").value = options.title;
-    document.querySelector("[name='disallowedChars']").value = options.disallowedChars;
+    document.querySelector("[name='title']").value = options.title || '';
+    document.querySelector("[name='disallowedChars']").value = options.disallowedChars || '';
     document.querySelector("[name='includeTemplate']").checked = options.includeTemplate;
     document.querySelector("[name='saveAs']").checked = options.saveAs;
     document.querySelector("[name='downloadImages']").checked = options.downloadImages;
-    document.querySelector("[name='imagePrefix']").value = options.imagePrefix;
-    document.querySelector("[name='mdClipsFolder']").value = result.mdClipsFolder;
+    document.querySelector("[name='imagePrefix']").value = options.imagePrefix || '';
+    document.querySelector("[name='mdClipsFolder']").value = result.mdClipsFolder || '';
     document.querySelector("[name='turndownEscape']").checked = options.turndownEscape;
     document.querySelector("[name='contextMenus']").checked = options.contextMenus;
     document.querySelector("[name='obsidianIntegration']").checked = options.obsidianIntegration;
-    document.querySelector("[name='obsidianVault']").value = options.obsidianVault;
-    document.querySelector("[name='obsidianFolder']").value = options.obsidianFolder;
+    document.querySelector("[name='obsidianVault']").value = options.obsidianVault || '';
+    document.querySelector("[name='obsidianFolder']").value = options.obsidianFolder || '';
+    document.querySelector("[name='claudeApiKey']").value = options.claudeApiKey || '';
 
     setCheckedValue(document.querySelectorAll("[name='headingStyle']"), options.headingStyle);
     setCheckedValue(document.querySelectorAll("[name='hr']"), options.hr);
